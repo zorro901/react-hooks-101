@@ -3,7 +3,6 @@ import Event from './Event'
 export const Events = ({ state, dispatch }) => {
   return (
     <>
-      
       <h4>イベント一覧</h4>
       <table className={'table table-hover'}>
         <thead>
