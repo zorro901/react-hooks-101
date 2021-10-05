@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { DELETE_EVENT } from './actions'
+import { DELETE_EVENT } from '../actions'
 import AppContext from '../contexts/AppContext'
 
 const Event = ({ event }) => {
