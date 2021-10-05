@@ -21,6 +21,12 @@ const App = () => {
     setBody('')
   }
   
+  const deteleAllEvents = e => {
+    e.preventDefault()
+    const result = window.confirm('全てのイベントを本当に削除してもいいですか？')
+    if (result) dispatch({ type: 'DELETE_ALL_EVENTS' })
+  }
+  
   return (
     <>
       <div className={'container-fluid'}>
@@ -38,8 +44,11 @@ const App = () => {
             <textarea className={'form-control'} id={'formEventBody'} value={body}
                       onChange={e => setBody(e.target.value)}/>
           </div>
-          <button className={'btn btn-primary'} onClick={addEvent}>イベントを作成する</button>
-          <button className={'btn btn-danger'}>全てのイベントを削除する</button>
+          <button className={'btn btn-primary'} onClick={addEvent} disabled={body && title ? false : true}>イベントを作成する
+          </button>
+          <button className={'btn btn-danger'} onClick={deteleAllEvents}
+                  disabled={state.length ? false : true}>全てのイベントを削除する
+          </button>
         </form>
         <h4>イベント一覧</h4>
         <table className={'table table-hover'}>
