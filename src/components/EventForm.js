@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { CREATE_EVENT, DELETE_ALL_EVENTS } from './actions'
+import AppContext from '../contexts/AppContext'
 
-export const EventForm = ({ state, dispatch }) => {
+export const EventForm = () => {
+  const { state, dispatch } = useContext(AppContext)
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   
@@ -41,7 +43,7 @@ export const EventForm = ({ state, dispatch }) => {
         <button className={'btn btn-primary'} onClick={addEvent} disabled={!(body && title)}>イベントを作成する
         </button>
         <button className={'btn btn-danger'} onClick={deteleAllEvents}
-                disabled={!state.length}>全てのイベントを削除する
+                disabled={!state.events.length}>全てのイベントを削除する
         </button>
       </form>
     
